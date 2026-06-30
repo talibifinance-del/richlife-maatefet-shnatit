@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>תוכנית המעטפת השנתית</title>
+<meta name="description" content="תוכנית המעטפת השנתית — ליווי פיננסי שממשיך לשמור עליכם במעקב">
+<meta property="og:title" content="תוכנית המעטפת השנתית">
+<meta property="og:description" content="ליווי פיננסי שממשיך לשמור עליכם במעקב">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1e2b25;
+    --ink-soft:#51625a;
+    --paper:#e9f1f2;
+    --paper-2:#ffffff;
+    --pine:#5f7d6a;
+    --pine-deep:#3e5448;
+    --gold:#5f7d6a;
+    --gold-soft:#bcd3bf;
+    --line:#d3e0df;
+    --shadow:rgba(62,84,72,.16);
+    --sage-tint:#eef4ef;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Heebo',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.65;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  h1,h2,h3,h4{font-family:'Frank Ruhl Libre',serif;line-height:1.2;font-weight:700}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      radial-gradient(120% 90% at 85% -10%, rgba(155,184,158,.30), transparent 55%),
+      linear-gradient(160deg,var(--pine-deep),var(--pine) 70%);
+    color:#eef3ef;
+    padding:84px 0 96px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .arrows{
+    position:absolute;top:-30px;left:-40px;width:520px;max-width:55%;
+    opacity:.16;z-index:1;pointer-events:none;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:auto 0 -1px 0;height:60px;
+    background:var(--paper);
+    clip-path:polygon(0 100%,100% 100%,100% 0,0 60%);
+    z-index:2;
+  }
+  .hero .wrap{position:relative;z-index:3;max-width:860px}
+  .eyebrow{
+    display:inline-block;font-weight:700;letter-spacing:.14em;font-size:.74rem;
+    color:var(--gold-soft);text-transform:uppercase;margin-bottom:22px;
+    border:1px solid rgba(188,211,191,.45);border-radius:100px;padding:7px 16px;
+  }
+  .hero h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:900;color:#fff;margin-bottom:26px}
+  .hero h1 .accent{color:var(--gold-soft)}
+  .hero p{font-size:1.12rem;color:#d4e2d7;font-weight:300;margin-bottom:16px;max-width:720px}
+  .hero p strong{font-weight:600;color:#fff}
+
+  /* ---------- GOAL SECTION ---------- */
+  section{padding:78px 0}
+  .section-head{text-align:center;max-width:680px;margin:0 auto 52px}
+  .section-head .kicker{color:var(--pine);font-weight:700;letter-spacing:.08em;font-size:.82rem;text-transform:uppercase;margin-bottom:14px}
+  .section-head h2{font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:900}
+  .section-head h2 em{font-style:normal;color:var(--pine);border-bottom:3px solid var(--gold-soft)}
+
+  .goal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:10px}
+  .goal{
+    background:var(--paper-2);border:1px solid var(--line);border-radius:18px;
+    padding:30px 28px;transition:transform .25s ease,box-shadow .25s ease;
+  }
+  .goal:hover{transform:translateY(-4px);box-shadow:0 18px 40px -22px var(--shadow)}
+  .goal .ico{font-size:1.9rem;display:block;margin-bottom:14px}
+  .goal h3{font-size:1.28rem;margin-bottom:10px}
+  .goal p{color:var(--ink-soft);font-size:1rem}
+
+  /* ---------- CATCH SUBSECTION ---------- */
+  .catch{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .catch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .catch-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px 22px;
+  }
+  .catch-card .ico{font-size:1.5rem;display:block;margin-bottom:10px}
+  .catch-card h4{font-size:1.08rem;margin-bottom:7px}
+  .catch-card p{color:var(--ink-soft);font-size:.94rem}
+
+  /* ---------- SYSTEM FEATURES (the gifted system) ---------- */
+  .feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:940px;margin:0 auto}
+  .feat{
+    background:var(--paper-2);border:1px solid var(--line);border-radius:14px;
+    padding:16px 46px 16px 20px;font-size:.96rem;color:var(--ink);line-height:1.5;position:relative;
+  }
+  .feat::before{content:"✓";position:absolute;right:18px;top:15px;color:var(--pine);font-weight:800;font-size:1.05rem}
+  .feat strong{font-weight:700;color:var(--ink)}
+
+  /* ---------- PRICING ---------- */
+  .pricing-head{text-align:center;margin-bottom:48px}
+  .pricing-head h2{font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:900}
+  .plans{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch}
+  .plan{
+    background:var(--paper-2);border:1px solid var(--line);border-radius:20px;
+    padding:30px 24px 28px;display:flex;flex-direction:column;position:relative;
+    transition:transform .25s ease,box-shadow .25s ease;
+  }
+  .plan:hover{transform:translateY(-5px);box-shadow:0 22px 46px -26px var(--shadow)}
+  .plan.featured{
+    border:2px solid var(--pine);background:var(--sage-tint);
+    box-shadow:0 26px 56px -30px rgba(95,125,106,.55);
+  }
+  .badge{
+    position:absolute;top:-14px;right:50%;transform:translateX(50%);
+    background:var(--gold);color:#fff;font-weight:700;font-size:.78rem;
+    padding:6px 18px;border-radius:100px;white-space:nowrap;letter-spacing:.02em;
+  }
+  .plan h3{font-size:1.4rem;font-weight:900;margin-bottom:4px}
+  .plan .tag{color:var(--ink-soft);font-size:.92rem;min-height:42px}
+  .price{display:flex;align-items:baseline;gap:6px;margin:18px 0 4px}
+  .price .num{font-family:'Frank Ruhl Libre',serif;font-size:2.7rem;font-weight:900;color:var(--pine)}
+  .price .per{color:var(--ink-soft);font-size:.95rem;font-weight:500}
+  .permeet{font-size:.86rem;color:var(--gold);font-weight:700;margin-bottom:14px}
+  .cadence{
+    background:rgba(95,125,106,.10);border-radius:10px;padding:9px 12px;
+    font-weight:600;font-size:.92rem;color:var(--pine-deep);margin-bottom:14px;
+  }
+  .terms{font-size:.78rem;color:var(--ink-soft);text-align:center;margin:0 0 16px;font-weight:500}
+  .plan ul{list-style:none;margin:0 0 20px;flex:1}
+  .plan li{font-size:.92rem;color:var(--ink-soft);padding:7px 0 7px 0;border-bottom:1px dashed var(--line);position:relative;padding-right:22px}
+  .plan li::before{content:"✓";position:absolute;right:0;color:var(--pine);font-weight:700}
+  .plan li:last-child{border-bottom:none}
+  .who{font-size:.88rem;color:var(--ink-soft);background:rgba(95,125,106,.08);border-radius:10px;padding:12px 14px;margin-bottom:18px}
+  .cta{
+    display:block;text-align:center;text-decoration:none;font-weight:700;
+    background:var(--pine);color:#fff;border-radius:100px;padding:14px;font-size:1rem;
+    transition:background .2s ease;
+  }
+  .cta:hover{background:var(--pine-deep)}
+  .plan.featured .cta{background:var(--pine-deep)}
+  .plan.featured .cta:hover{background:#2f4036}
+
+  /* ---------- CONTINUE (monthly, still in process) ---------- */
+  .continue{
+    background:
+      radial-gradient(120% 90% at 90% -20%, rgba(155,184,158,.25), transparent 55%),
+      linear-gradient(160deg,var(--pine-deep),var(--pine) 80%);
+    color:#eef3ef;border-radius:24px;padding:42px 46px;
+    display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;
+    box-shadow:0 26px 56px -30px rgba(62,84,72,.55);
+  }
+  .continue .kick{
+    display:inline-block;font-weight:700;letter-spacing:.1em;font-size:.76rem;
+    color:var(--gold-soft);text-transform:uppercase;margin-bottom:16px;
+    border:1px solid rgba(188,211,191,.45);border-radius:100px;padding:6px 15px;
+  }
+  .continue h2{font-size:clamp(1.55rem,3.2vw,2.1rem);font-weight:900;color:#fff;margin-bottom:16px;line-height:1.25}
+  .continue p{color:#d4e2d7;font-size:1.02rem;font-weight:300;margin-bottom:10px}
+  .continue p strong{font-weight:600;color:#fff}
+  .continue .side{background:rgba(255,255,255,.07);border:1px solid rgba(188,211,191,.25);border-radius:18px;padding:28px 26px}
+  .continue .price{display:flex;align-items:baseline;gap:6px;margin:0 0 4px;justify-content:center}
+  .continue .price .num{font-family:'Frank Ruhl Libre',serif;font-size:2.7rem;font-weight:900;color:#fff}
+  .continue .price .per{color:#cfe0d3;font-size:.95rem;font-weight:500}
+  .continue .cadence2{text-align:center;color:var(--gold-soft);font-weight:700;font-size:.92rem;margin-bottom:8px}
+  .continue .terms{font-size:.78rem;color:#cfe0d3;text-align:center;margin:0 0 18px;font-weight:500}
+  .continue ul{list-style:none;margin:0 0 22px}
+  .continue li{font-size:.93rem;color:#e3efe5;padding:7px 0;border-bottom:1px dashed rgba(188,211,191,.25);position:relative;padding-right:22px}
+  .continue li::before{content:"✓";position:absolute;right:0;color:var(--gold-soft);font-weight:700}
+  .continue li:last-child{border-bottom:none}
+  .continue .cta{
+    display:block;text-align:center;text-decoration:none;font-weight:700;
+    background:#fff;color:var(--pine-deep);border-radius:100px;padding:14px;font-size:1rem;
+    transition:transform .2s ease,box-shadow .2s ease;
+  }
+  .continue .cta:hover{transform:translateY(-2px);box-shadow:0 14px 30px -16px rgba(0,0,0,.4)}
+
+  /* ---------- NOTE ---------- */
+  .note{
+    max-width:760px;margin:8px auto 0;background:var(--pine-deep);color:#e7efe9;
+    border-radius:20px;padding:34px 38px;text-align:center;
+  }
+  .note strong{color:var(--gold-soft)}
+  .note .ico{font-size:1.8rem;display:block;margin-bottom:12px}
+
+  footer{padding:40px 0 60px;text-align:center;color:var(--ink-soft);font-size:.85rem}
+
+  @media(max-width:900px){
+    .plans{grid-template-columns:repeat(2,1fr)}
+    .catch-grid{grid-template-columns:repeat(2,1fr)}
+    .continue{grid-template-columns:1fr;padding:34px 28px;gap:26px}
+  }
+  @media(max-width:620px){
+    .goal-grid,.plans,.catch-grid,.feat-grid{grid-template-columns:1fr}
+    .hero{padding:64px 0 76px}
+    section{padding:58px 0}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="arrows" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="#9bb89e" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M40 165 L150 80"/><path d="M120 90 L150 80 L142 112"/>
+      <path d="M70 175 L190 70"/><path d="M158 80 L190 70 L184 104"/>
+      <path d="M100 185 L235 60"/><path d="M201 70 L235 60 L231 96"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <span class="eyebrow">תוכנית המעטפת השנתית</span>
+    <h1>נכון, בזמן התהליך קל להתמיד — <span class="accent">אבל אחר כך זה קצת מתמסמס?</span></h1>
+    <p>בששת החודשים האחרונים עברתם כברת דרך מדהימה. בניתם תשתית חזקה, שיניתם הרגלים והתחלתם לראות את הכסף שלכם עובד בשבילכם.</p>
+    <p>כדי לוודא שאתם שומרים על המומנטום, לא חוזרים להרגלים הישנים וממשיכים להגדיל את ההון שלכם בראש שקט — יצרתי עבורכם את <strong>תוכנית המעטפת השנתית</strong>, שבה אנחנו עדיין נשארים במעקב ביחד על העתיד הכלכלי שלכם.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">המטרה היא ש...</div>
+      <h2>נשמור יחד על <em>היציבות שבניתם</em></h2>
+    </div>
+    <div class="goal-grid">
+      <div class="goal">
+        <span class="ico">🤝</span>
+        <h3>לא תישארו לבד</h3>
+        <p>תדעו שיש לכם גב מקצועי זמין לכל דילמה, התלבטות או החלטה כלכלית שעולה ביומיום.</p>
+      </div>
+      <div class="goal">
+        <span class="ico">🔗</span>
+        <h3>כל התמונה הפיננסית במקום אחד (אוטומטית!)</h3>
+        <p>במקום להתפזר בין אפליקציות של בנקים, אשראי, גמל, פנסיה, נדל"ן והשקעות — המערכת שואבת ומסנכרנת הכל מדי יום ומציגה את ה"שווי הנקי" האמיתי שלכם בכל רגע.</p>
+      </div>
+      <div class="goal">
+        <span class="ico">⚡</span>
+        <h3>נתפוס חריגות בזמן אמת</h3>
+        <p>המערכת עוקבת ומתריעה ברגע שמשהו יוצא מהמסלול — לפני שזה משפיע על המטרות הגדולות שלכם.</p>
+      </div>
+      <div class="goal">
+        <span class="ico">🚀</span>
+        <h3>נמשיך לצמוח ולא רק לשמר</h3>
+        <p>במקום רק "להחזיק את הראש מעל המים", נמשיך לדחוף קדימה, לעדכן מטרות ולהגדיל את ההון שלכם.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="catch">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">מה בדיוק המערכת תופסת</div>
+      <h2>שבעה דברים <em>שלא יחמקו</em></h2>
+    </div>
+    <div class="catch-grid">
+      <div class="catch-card">
+        <span class="ico">📊</span>
+        <h4>חריגות בתקציב</h4>
+        <p>המערכת תקפיץ לשנינו התראה ברגע שיש חריגה בקטגוריה מסוימת כדי שנתקן אותה מיד.</p>
+      </div>
+      <div class="catch-card">
+        <span class="ico">💳</span>
+        <h4>חיובים כפולים והתייקרויות</h4>
+        <p>נתפוס בזמן טעויות באשראי או ספקי שירות (אינטרנט, ביטוחים) שהעלו מחיר בלי לעדכן.</p>
+      </div>
+      <div class="catch-card">
+        <span class="ico">🚨</span>
+        <h4>התרעה מוקדמת לפני מינוס</h4>
+        <p>המערכת תזהה את קצב ההוצאות ותתריע מראש כדי שנמנע ריביות נשך מיותרות לבנק.</p>
+      </div>
+      <div class="catch-card">
+        <span class="ico">😴</span>
+        <h4>מינויים רדומים</h4>
+        <p>נאתר אפליקציות ושירותים שאתם משלמים עליהם חודש אחרי חודש בלי להשתמש בהם — ונבטל.</p>
+      </div>
+      <div class="catch-card">
+        <span class="ico">💰</span>
+        <h4>כסף שמחכה על הרצפה</h4>
+        <p>נזהה מתי נצבר בחשבון סכום פנוי ונחליט יחד לאיזה אפיק השקעה חכם להפנות אותו.</p>
+      </div>
+      <div class="catch-card">
+        <span class="ico">📈</span>
+        <h4>עליית דמי ניהול ועמלות</h4>
+        <p>תקבלו התראה מיידית ברגע שגוף פנסיוני או בנק גובה מכם כסף שלא הייתם אמורים לשלם.</p>
+      </div>
+      <div class="catch-card">
+        <span class="ico">🏠</span>
+        <h4>ריבית גבוהה מדי על משכנתה או הלוואה</h4>
+        <p>נזהה אם הריבית על המשכנתה או על הלוואה קיימת גבוהה מהשוק, ונבדוק יחד אם שווה למחזר ולהוזיל את ההחזר החודשי.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">המתנה שמגיעה עם כל מסלול</div>
+      <h2>המערכת המתקדמת ש<em>מקבלים במתנה</em></h2>
+      <p style="color:var(--ink-soft);font-size:1.02rem;margin-top:14px">מנוי פרימיום מלא (שווי ₪600), מחובר אליי וזמין גם באפליקציה וגם במחשב. כל התמונה הפיננסית שלכם במקום אחד, מסונכרנת אוטומטית מדי יום.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat"><strong>ניהול תקציב חכם</strong> שמושך כל הוצאה לבד ומסדר אותה בקטגוריות נוחות, בלי שתצטרכו להזין שקל ידנית</div>
+      <div class="feat">כל חשבונות הבנק והאשראי מתעדכנים לבד מדי יום, במקום לפתוח עשר אפליקציות</div>
+      <div class="feat">תזרים חודשי שמתעדכן אוטומטית, ככה תמיד יודעים כמה באמת נשאר</div>
+      <div class="feat">שווי הנדל"ן שלכם מעודכן אוטומטית לפי מחירי השוק</div>
+      <div class="feat">גרף שווי נקי לאורך זמן, רואים שחור על לבן איך ההון שלכם גדל</div>
+      <div class="feat">מחשבון פרישה מוקדמת, שמראה מתי תוכלו לחיות מההון שלכם</div>
+      <div class="feat">כל החיסכון ארוך הטווח שלכם, <strong>פנסיה, קופת גמל וקרן השתלמות</strong>, מרוכז מכל החברות במקום אחד (בלי להיכנס בנפרד לכל קופה), כולל מעקב אחר דמי הניהול שכל אחת גובה</div>
+      <div class="feat"><strong>מנוי משפחתי</strong>, לנהל את הכל יחד עם בן או בת הזוג בלי עלות נוספת</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="pricing-head">
+      <h2>בחרו את רמת המעורבות והליווי המדויקת עבורכם</h2>
+    </div>
+    <div class="plans">
+
+      <div class="plan">
+        <h3>ניתוח שנתי</h3>
+        <div class="tag">הכלי שמרכז הכל, עם תכנון שנתי איתי</div>
+        <div class="price"><span class="num">₪97</span><span class="per">/ חודש</span></div>
+        <div class="cadence">👥 מפגש אחד בשנה · סיכום ותכנון</div>
+        <div class="terms">🔁 הוראת קבע חודשית · ניתן לביטול בכל עת</div>
+        <ul>
+          <li>מנוי פרימיום מלא למערכת, <strong>במתנה</strong> (שווי ₪600) 🎁</li>
+          <li>התראות חכמות לנייד: חריגות, מינוס, חיובים כפולים ודמי ניהול</li>
+          <li>מעקב ובקרה עצמאית שלכם</li>
+          <li>מפגש שנתי לסיכום השנה ותכנון השנה הבאה</li>
+          <li>🎁 <strong>מתנה נוספת ממני:</strong> כל הפנסיה, קופת הגמל וקרן ההשתלמות שלכם מכל החברות במקום אחד, לשנה (שווי ₪240)</li>
+        </ul>
+        <div class="who">למי שמסתדר טוב בשוטף ורוצה את הכלי שמרכז את כל התמונה הפיננסית במקום אחד, ובנוסף פגישת תכנון שנתית איתי, שבה נסכם את השנה, נתכנן את הבאה ונוודא שלא פספסנו כלום.</div>
+        <a class="cta" href="https://wa.me/972544563628?text=%D7%94%D7%99%D7%99%20%D7%98%D7%9C%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20%27%D7%A0%D7%99%D7%AA%D7%95%D7%97%20%D7%A9%D7%A0%D7%AA%D7%99%27%20%D7%91%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%AA%20%D7%94%D7%9E%D7%A2%D7%98%D7%A4%D7%AA%20%D7%94%D7%A9%D7%A0%D7%AA%D7%99%D7%AA%20%F0%9F%99%82" target="_blank" rel="noopener">בחירת המסלול</a>
+      </div>
+
+      <div class="plan">
+        <h3>הגנה ובקרה</h3>
+        <div class="tag">עין מקצועית ברקע שתשמור עליכם</div>
+        <div class="price"><span class="num">₪186</span><span class="per">/ חודש</span></div>
+        <div class="cadence">👥 2 מפגשים בשנה · פעם בחצי שנה</div>
+        <div class="terms">🔁 הוראת קבע חודשית · ניתן לביטול בכל עת</div>
+        <ul>
+          <li>מנוי פרימיום מלא למערכת, <strong>במתנה</strong> (שווי ₪600) 🎁</li>
+          <li>בקרת חריגות והתרעה אקטיבית ממני במקרה של סטייה מהתקציב</li>
+          <li>זמינות בוואטסאפ לשאלות ודילמות נקודתיות</li>
+          <li>מפגש חצי-שנתי להתאמת המטרות וווידוא שאתם לא נופלים בדרך</li>
+          <li>🎁 <strong>מתנה נוספת ממני:</strong> כל הפנסיה, קופת הגמל וקרן ההשתלמות שלכם מכל החברות במקום אחד, לשנה (שווי ₪240)</li>
+        </ul>
+        <div class="who">למי שרוצה "עין מקצועית" ברקע שתשמור עליו מפני טעויות ותוודא שהמסלול יציב.</div>
+        <a class="cta" href="https://wa.me/972544563628?text=%D7%94%D7%99%D7%99%20%D7%98%D7%9C%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20%27%D7%94%D7%92%D7%A0%D7%94%20%D7%95%D7%91%D7%A7%D7%A8%D7%94%27%20%D7%91%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%AA%20%D7%94%D7%9E%D7%A2%D7%98%D7%A4%D7%AA%20%D7%94%D7%A9%D7%A0%D7%AA%D7%99%D7%AA%20%F0%9F%99%82" target="_blank" rel="noopener">בחירת המסלול</a>
+      </div>
+
+      <div class="plan featured">
+        <span class="badge">⭐ המסלול המבוקש ביותר</span>
+        <h3>השקט הנפשי</h3>
+        <div class="tag">הביטוח שלכם להצלחה</div>
+        <div class="price"><span class="num">₪355</span><span class="per">/ חודש</span></div>
+        <div class="cadence">👥 4 מפגשים בשנה · מפגש רבעוני, פעם ב-3 חודשים</div>
+        <div class="terms">🔁 הוראת קבע חודשית · ניתן לביטול בכל עת</div>
+        <ul>
+          <li>מנוי פרימיום מלא למערכת, <strong>במתנה</strong> (שווי ₪600) 🎁</li>
+          <li>בקרת חריגות והתרעה אקטיבית ממני במקרה של סטייה</li>
+          <li>ליווי שוטף וצמוד בוואטסאפ לכל החלטה או התלבטות ביומיום</li>
+          <li>בקרה חודשית אקטיבית שלי על התקציב שלכם</li>
+          <li>📞 מענה מהיר וייעוץ מקיף בכל צומת החלטה</li>
+          <li>מפגש רבעוני להתאמת התקציב לשינויי החיים</li>
+          <li>🎁 <strong>מתנה נוספת ממני:</strong> כל הפנסיה, קופת הגמל וקרן ההשתלמות שלכם מכל החברות במקום אחד, לשנה (שווי ₪240)</li>
+        </ul>
+        <div class="who">למי שמבין שקל מאוד להתפזר בשגרה ורוצה יד על הדופק וליווי מקצועי זמין תמיד.</div>
+        <a class="cta" href="https://wa.me/972544563628?text=%D7%94%D7%99%D7%99%20%D7%98%D7%9C%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20%27%D7%94%D7%A9%D7%A7%D7%98%20%D7%94%D7%A0%D7%A4%D7%A9%D7%99%27%20%D7%91%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%AA%20%D7%94%D7%9E%D7%A2%D7%98%D7%A4%D7%AA%20%D7%94%D7%A9%D7%A0%D7%AA%D7%99%D7%AA%20%F0%9F%99%82" target="_blank" rel="noopener">בחירת המסלול</a>
+      </div>
+
+      <div class="plan">
+        <h3>מעטפת פרימיום</h3>
+        <div class="tag">למורכבות פיננסית גבוהה</div>
+        <div class="price"><span class="num">₪507</span><span class="per">/ חודש</span></div>
+        <div class="cadence">👥 6 מפגשים בשנה · פעם בחודשיים</div>
+        <div class="terms">🔁 הוראת קבע חודשית · ניתן לביטול בכל עת</div>
+        <ul>
+          <li>מנוי פרימיום מלא למערכת, <strong>במתנה</strong> (שווי ₪600) 🎁</li>
+          <li>בקרת חריגות והתרעה אקטיבית ממני במקרה של סטייה</li>
+          <li>ליווי שוטף וצמוד בוואטסאפ בעצימות גבוהה</li>
+          <li>בדיקות עומק שבועיות</li>
+          <li>בקרה חודשית אקטיבית שלי על התקציב שלכם</li>
+          <li>📞 מענה מהיר וייעוץ מקיף בכל צומת החלטה</li>
+          <li>מפגש פעם בחודשיים — סה"כ 6 מפגשים בשנה</li>
+          <li>🎁 <strong>מתנה נוספת ממני:</strong> כל הפנסיה, קופת הגמל וקרן ההשתלמות שלכם מכל החברות במקום אחד, לשנה (שווי ₪240)</li>
+        </ul>
+        <div class="who">למשפחות ועצמאיים עם הכנסה משתנה או מורכבות פיננסית גבוהה שזקוקים ל"שוטר צמוד".</div>
+        <a class="cta" href="https://wa.me/972544563628?text=%D7%94%D7%99%D7%99%20%D7%98%D7%9C%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20%27%D7%9E%D7%A2%D7%98%D7%A4%D7%AA%20%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D%27%20%D7%91%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%AA%20%D7%94%D7%9E%D7%A2%D7%98%D7%A4%D7%AA%20%D7%94%D7%A9%D7%A0%D7%AA%D7%99%D7%AA%20%F0%9F%99%82" target="_blank" rel="noopener">בחירת המסלול</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="continue">
+      <div>
+        <span class="kick">עוד באמצע הדרך?</span>
+        <h2>מסלול הפגישה החודשית — נמשיך יחד עד שתעמדו על הקרקע</h2>
+        <p>עוד לא יצאנו מהמינוס? עוד לא הגעתם לקו שרציתם, ואתם מעדיפים שאשאר איתכם צמוד כל חודש? זה בדיוק הרגע לא לעצור באמצע.</p>
+        <p>זה לא מסלול של 12 חודשים, אלא מסלול שנמשך כל עוד צריך. נמשיך להיפגש <strong>פעם בחודש</strong>, יד על הדופק, עד שתתייצבו לגמרי על היציבות שבנינו יחד, ורק אז נעבור יחד למסלול מתון יותר.</p>
+      </div>
+      <div class="side">
+        <div class="price"><span class="num">₪890</span><span class="per">/ חודש</span></div>
+        <div class="cadence2">👥 פגישה כל חודש · ממשיך עד שעוברים למסלול אחר</div>
+        <div class="terms">🔁 הוראת קבע חודשית · ניתן לביטול בכל עת</div>
+        <ul>
+          <li>מנוי פרימיום מלא למערכת, <strong>במתנה</strong> (שווי ₪600) 🎁</li>
+          <li>פגישה חודשית צמודה — יד על הדופק לכל החלטה</li>
+          <li>בקרה חודשית אקטיבית שלי על התקציב שלכם</li>
+          <li>ליווי שוטף וזמין בוואטסאפ בין הפגישות</li>
+          <li>🎁 <strong>מתנה נוספת ממני:</strong> כל הפנסיה, קופת הגמל וקרן ההשתלמות שלכם מכל החברות במקום אחד, לשנה (שווי ₪240)</li>
+        </ul>
+        <a class="cta" href="https://wa.me/972544563628?text=%D7%94%D7%99%D7%99%20%D7%98%D7%9C%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20%27%D7%A4%D7%92%D7%99%D7%A9%D7%94%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%AA%27%20%D7%91%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%AA%20%D7%94%D7%9E%D7%A2%D7%98%D7%A4%D7%AA%20%D7%94%D7%A9%D7%A0%D7%AA%D7%99%D7%AA%20%F0%9F%99%82" target="_blank" rel="noopener">בחירת המסלול</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="note">
+      <span class="ico">💡</span>
+      <p><strong>הערת ביטחון:</strong> בכל אחד מהמסלולים, המערכת מסונכרנת איתי ישירות. ברגע שיש חריגה משמעותית או תנועה חריגה בחשבון — המערכת מקפיצה לי התראה, כדי שנוכל לתפוס את זה בזמן, <strong>לפני שזה משפיע על המטרות הגדולות שלכם.</strong></p>
+    </div>
+    <div class="note" style="margin-top:18px;background:var(--pine);">
+      <span class="ico">🔁</span>
+      <p><strong>איך עובד התשלום:</strong> כל מסלול הוא הוראת קבע חודשית, בלי התחייבות לתקופה, וניתן לביטול בכל רגע. בפועל התשלום הוא על הפגישות, והמעטפת והמערכת באות במתנה כחלק מהחבילה. <strong>טיפ ששווה לכם:</strong> כדאי לבטל אחרי פגישה ולא לפניה, כדי לקבל את מלוא הערך ששילמתם עליו לקראתה (בתוכנית שנתית זה אחרי הפגישה השנתית, ברבעונית אחרי הרבעון, וכן הלאה).</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">תוכנית המעטפת השנתית · ליווי פיננסי שממשיך לשמור עליכם</div>
+</footer>
+
+</body>
+</html>
